@@ -1,24 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [isHover, setIsHover] = useState(false);
 
-    const [isHover, setIsHover] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
 
-    const handleMouseEnter = () => {
-        setIsHover(true);
-    };
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
 
-    const handleMouseLeave = () => {
-        setIsHover(false);
-    };
+  const a = {
+    color: "#000000",
+    textDecoration: isHover ? "underline" : "none",
+  };
+  return (
+    <div style={{ color: "#000000" }} className="text-center">
+      Made with by{" "}
+      <a
+        href="https://ankanroy.in"
+        target="_blank"
+        rel="noreferrer"
+        style={a}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        Pankaj Pal
+      </a>
+    </div>
+  );
+};
 
-    const a = {
-        color: "#000000",
-        textDecoration: isHover ? 'underline' : 'none'
-    }
-    return (
-        <div style={{ color: '#000000' }} className="text-center">Made with ❤️ by <a href="https://ankanroy.in" target="_blank" rel="noreferrer" style={a} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Ankan</a></div>
-    )
-}
-
-export default Footer
+export default Footer;

@@ -7,10 +7,9 @@ import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 import Search from "./components/Search";
 import { CATEGORIES } from "./constants/index";
+import JobData from "./components/JobData";
 
 function App() {
-  const apiKey = "oxr3v00wJywPZwi0PVUxZyw8OmMc6i9a";
-
   return (
     <>
       <Router>
@@ -19,14 +18,19 @@ function App() {
           <Route
             exact
             path="/"
-            element={<TopStories apiKey={apiKey} section="home" />}
+            element={
+              <TopStories
+                apiKey={process.env.REACT_APP_API_KEY}
+                section="home"
+              />
+            }
           ></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="*" element={<NotFound />}></Route>
           <Route
             exact
             path="/search"
-            element={<Search apiKey={apiKey} />}
+            element={<Search apiKey={process.env.REACT_APP_API_KEY} />}
           ></Route>
           {CATEGORIES.map((e) => {
             return (
@@ -35,11 +39,15 @@ function App() {
                 exact
                 path={`/categories/${e.toLowerCase()}`}
                 element={
-                  <TopStories apiKey={apiKey} section={e.toLowerCase()} />
+                  <TopStories
+                    apiKey={process.env.REACT_APP_API_KEY}
+                    section={e.toLowerCase()}
+                  />
                 }
               ></Route>
             );
           })}
+          <Route path="/jobs" element={<JobData />} />
         </Routes>
         <Footer />
       </Router>
