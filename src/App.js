@@ -7,7 +7,6 @@ import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 import Search from "./components/Search";
 import { CATEGORIES } from "./constants/index";
-import JobData from "./components/JobData";
 
 function App() {
   return (
@@ -47,7 +46,6 @@ function App() {
               ></Route>
             );
           })}
-          <Route path="/jobs" element={<JobData />} />
         </Routes>
         <Footer />
       </Router>
