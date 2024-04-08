@@ -1,23 +1,22 @@
-import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { CATEGORIES } from "../constants/index";
 
-function Navbar() {
-
+const Navbar = () => {
   const close = useRef();
   const navigate = useNavigate();
 
-  const [query, setquery] = useState("")
+  const [query, setquery] = useState("");
 
   const handleChange = (e) => {
     setquery(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search?query=${query}`)
-    close.current.click()
-  }
+    navigate(`/search?query=${query}`);
+    close.current.click();
+  };
 
   return (
     <>
@@ -137,6 +136,6 @@ function Navbar() {
       </nav>
     </>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

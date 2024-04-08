@@ -8,48 +8,46 @@ import Footer from "./components/Footer";
 import Search from "./components/Search";
 import { CATEGORIES } from "./constants/index";
 
+import NewsPost from "./components/NewsPost";
+
 function App() {
   return (
-    <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <TopStories
-                apiKey={process.env.REACT_APP_API_KEY}
-                section="home"
-              />
-            }
-          ></Route>
-          <Route exact path="/about" element={<About />}></Route>
-          <Route exact path="*" element={<NotFound />}></Route>
-          <Route
-            exact
-            path="/search"
-            element={<Search apiKey={process.env.REACT_APP_API_KEY} />}
-          ></Route>
-          {CATEGORIES.map((e) => {
-            return (
-              <Route
-                key={e}
-                exact
-                path={`/categories/${e.toLowerCase()}`}
-                element={
-                  <TopStories
-                    apiKey={process.env.REACT_APP_API_KEY}
-                    section={e.toLowerCase()}
-                  />
-                }
-              ></Route>
-            );
-          })}
-        </Routes>
-        <Footer />
-      </Router>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <TopStories apiKey={process.env.REACT_APP_API_KEY} section="home" />
+          }
+        ></Route>
+        <Route exact path="/about" element={<About />}></Route>
+        <Route exact path="*" element={<NotFound />}></Route>
+        <Route exact path="/newspost" element={<NewsPost />} />
+        <Route
+          exact
+          path="/search"
+          element={<Search apiKey={process.env.REACT_APP_API_KEY} />}
+        ></Route>
+        {CATEGORIES.map((e) => {
+          return (
+            <Route
+              key={e}
+              exact
+              path={`/categories/${e.toLowerCase()}`}
+              element={
+                <TopStories
+                  apiKey={process.env.REACT_APP_API_KEY}
+                  section={e.toLowerCase()}
+                />
+              }
+            ></Route>
+          );
+        })}
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
