@@ -38,3 +38,6 @@ This repository is not under MIT license.
 - [New York Times API](https://developer.nytimes.com/)
 - [Bootstrap](https://getbootstrap.com/)
 
+
+This is the project of react js and we have to implement news api in this project and we develop in tech stack used html, css, javascript.
+
